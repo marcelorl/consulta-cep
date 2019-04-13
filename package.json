@@ -8,6 +8,11 @@
     "react-scripts": "2.1.8",
     "styled-components": "^4.2.0"
   },
+  "devDependencies": {
+    "lint-staged": "^8.1.5",
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -49,10 +54,15 @@
       }
     }
   },
-  "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "lint-staged": "^8.1.5",
-    "snazzy": "^8.0.0",
-    "standard": "^12.0.1"
+  "standard": {
+    "globals": [
+      "fetch",
+      "jest",
+      "describe",
+      "it",
+      "xit",
+      "expect",
+      "beforeEach"
+    ]
   }
 }
