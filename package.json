@@ -5,13 +5,19 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "npm test -- --coverage",
+    "lint": "standard \"src/**/*.js\" --fix --verbose | snazzy",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "precommit": "lint-staged"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +27,32 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "lint-staged": {
+    "*.js": [
+      "standard --fix --verbose | snazzy",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!<rootDir>/node_modules/",
+      "!src/*.{js}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 60,
+        "lines": 60,
+        "statements": 60
+      }
+    }
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "lint-staged": "^8.1.5",
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1"
+  }
 }
