@@ -1,5 +1,6 @@
 {
   "name": "consulta-cep",
+  "homepage": "https://marcelorl.github.io/consulta-cep/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
