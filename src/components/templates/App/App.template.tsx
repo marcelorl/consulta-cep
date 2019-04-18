@@ -2,30 +2,16 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 import { Store } from '../../../Store'
-import Button from '../../atoms/Button'
-import SearchField from '../../atoms/SearchField'
+import FormSearchContainer from '../../molecules/FormSearchContainer'
 
-const FormSearchFieldWrapper = styled.form`
-  background: ${props => props.theme.colors.gainsboro};
+const App = styled.div`
   font-family: arial;
-  padding: 3rem 2rem 4rem;
-  width: 100%;
 `
 
-const FormSearchFieldWrapperLabel = styled.div`
-  font-weight: 600;
-  margin-bottom: 2rem;
-`
-
-const SearchBar = styled.div`
-  color: ${props => props.theme.colors.darkgray};
-  display: flex;
-`
-
-const LabelWrapper = styled.label`
-  > * {
-    margin-right: 1rem;
-  }
+const Title = styled.h1`
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 2rem 0;
 `
 
 const AppTemplate = () => {
@@ -47,18 +33,10 @@ const AppTemplate = () => {
   })
 
   return (
-    <Fragment>
-      <FormSearchFieldWrapper>
-        <FormSearchFieldWrapperLabel>Consultar</FormSearchFieldWrapperLabel>
-        <SearchBar>
-          <LabelWrapper htmlFor="search-field">
-            <span>CEP</span>
-            <SearchField id="search-field" />
-          </LabelWrapper>
-          <Button />
-        </SearchBar>
-      </FormSearchFieldWrapper>
-    </Fragment>
+    <App>
+      <Title>Consulta de endereço</Title>
+      <FormSearchContainer />
+    </App>
   )
 }
 

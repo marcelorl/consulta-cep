@@ -14,6 +14,6 @@ const SearchFieldWrapper = styled.input`
 `
 
 const SearchField = ({ id }: ISearchField) =>
-  <SearchFieldWrapper placeholder="02050-010" id={id} />
+  <SearchFieldWrapper placeholder="02050-010" id={id} required />
 
 export default SearchField
