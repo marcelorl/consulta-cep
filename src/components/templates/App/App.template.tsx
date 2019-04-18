@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { Store } from '../../../Store'
 import FormSearchContainer from '../../molecules/FormSearchContainer'
+import MapContainer from '../../organims/MapContainer'
 
 const App = styled.div`
+  display: flex;
+  flex-direction: column;
   font-family: arial;
 `
 
@@ -36,6 +39,7 @@ const AppTemplate = () => {
     <App>
       <Title>Consulta de endereço</Title>
       <FormSearchContainer />
+      <MapContainer />
     </App>
   )
 }

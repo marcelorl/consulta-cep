@@ -6,6 +6,7 @@ import SearchField from '../../atoms/SearchField'
 
 const FormSearchContainerWrapper = styled.form`
   background: ${props => props.theme.colors.gainsboro};
+  box-sizing: border-box;
   padding: 2rem 2rem 4rem;
   width: 100%;
 `
