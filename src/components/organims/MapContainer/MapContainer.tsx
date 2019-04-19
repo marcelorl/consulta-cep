@@ -44,19 +44,11 @@ const CloseButton = styled.button`
 `
 
 class MapContainer extends PureComponent {
-  state: IState
-
-  constructor (props: any) {
-    super(props)
-
-    this.state = {
-      isShown: false
-    }
-
-    this.onClickCloseButton = this.onClickCloseButton.bind(this)
+  state: IState = {
+    isShown: true
   }
 
-  onClickCloseButton () {
+  onClickCloseButton = () => {
     this.setState({
       isShown: false
     })
