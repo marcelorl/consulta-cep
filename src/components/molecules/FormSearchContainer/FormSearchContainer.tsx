@@ -39,4 +39,4 @@ const FormSearchContainer = () =>
     </SearchBar>
   </FormSearchContainerWrapper>
 
-export default FormSearchContainer
+export default React.memo(FormSearchContainer)

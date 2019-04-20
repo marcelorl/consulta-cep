@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Store } from '../../../Store'
 import FormSearchContainer from '../../molecules/FormSearchContainer'
-import MapContainer from '../../organims/MapContainer'
+// import MapContainer from '../../organims/MapContainer'
 
 const App = styled.div`
   display: flex;
@@ -16,6 +16,8 @@ const Title = styled.h1`
   font-weight: bold;
   padding: 2rem 0;
 `
+
+let MapContainer = React.lazy(() => import('../../organims/MapContainer'))
 
 const AppTemplate = () => {
   const { state, dispatch } = React.useContext(Store)
@@ -39,7 +41,9 @@ const AppTemplate = () => {
     <App>
       <Title>Consulta de endereço</Title>
       <FormSearchContainer />
-      <MapContainer />
+      <React.Suspense fallback={<div>Carregando...</div>}>
+        <MapContainer />
+      </React.Suspense>
     </App>
   )
 }

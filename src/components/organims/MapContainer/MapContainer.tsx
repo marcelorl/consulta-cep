@@ -4,10 +4,6 @@ import styled from 'styled-components'
 import Map from '../../molecules/Map'
 import closeSvg from './images/close.svg'
 
-interface IState {
-  isShown: boolean
-}
-
 const MapContainerWrapper = styled.div`
   border: 2px solid ${props => props.theme.colors.gainsboro};
   box-sizing: border-box;
@@ -43,37 +39,31 @@ const CloseButton = styled.button`
   }
 `
 
-class MapContainer extends PureComponent {
-  state: IState = {
-    isShown: true
+const MapContainer = () => {
+  const [isShown, setIsShown] = React.useState(true)
+
+  const onClickCloseButton = () => {
+    setIsShown(false)
   }
 
-  onClickCloseButton = () => {
-    this.setState({
-      isShown: false
-    })
-  }
+  if (!isShown) return null
 
-  render () {
-    if (!this.state.isShown) return null
+  return (
+    <MapContainerWrapper >
+      <CloseButton type="button" onClick={onClickCloseButton}>
+        <img src={closeSvg} alt="close"/>
+      </CloseButton>
 
-    return (
-      <MapContainerWrapper >
-        <CloseButton type="button" onClick={this.onClickCloseButton}>
-          <img src={closeSvg} alt="close"/>
-        </CloseButton>
+      <AddressWrapper>
+        <Street>Rua Miguel Mentem</Street>
+        <p>Vila Guilherme</p>
+        <p>São Paulo - SP</p>
+        <p>02050-010</p>
+      </AddressWrapper>
 
-        <AddressWrapper>
-          <Street>Rua Miguel Mentem</Street>
-          <p>Vila Guilherme</p>
-          <p>São Paulo - SP</p>
-          <p>02050-010</p>
-        </AddressWrapper>
-
-        <Map />
-      </MapContainerWrapper>
-    )
-  }
+      <Map />
+    </MapContainerWrapper>
+  )
 }
 
 

@@ -14,4 +14,4 @@ const Button = () =>
     Buscar
   </ButtonWrapper>
 
-export default Button
+export default React.memo(Button)

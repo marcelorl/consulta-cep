@@ -17,4 +17,4 @@ const SearchFieldWrapper = styled(InputMask)`
 const SearchField = (props: ISearchField) =>
   <SearchFieldWrapper mask="99999-999" {...props} required />
 
-export default SearchField
+export default React.memo(SearchField)
