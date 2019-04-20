@@ -17,3 +17,4 @@ export default async (dispatch: any, zipCode: string) => {
     })
   }
 }
+

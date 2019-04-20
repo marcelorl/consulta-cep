@@ -1,8 +1,18 @@
 import React, { Dispatch } from 'react'
 
 interface IState {
-  address: Object
-  error: boolean
+  address: {
+    logradouro?: string
+    bairro?: string
+    localidade?: string
+    uf?: string
+    cep?: string
+    mapsCoordinates?: {
+      lat: number
+      lng: number
+    }
+  }
+  status: string
 }
 
 interface IFetchAddress {
@@ -11,15 +21,18 @@ interface IFetchAddress {
 }
 
 interface IFetchAddressFail {
-  error: Object
   type: 'FETCH_ADDRESS_FAIL'
+}
+
+interface IFetchAddressClose {
+  type: 'FETCH_ADDRESS_CLOSE'
 }
 
 interface IStoreProvider {
   children: any
 }
 
-export type Actions = IFetchAddress | IFetchAddressFail;
+export type Actions = IFetchAddress | IFetchAddressFail | IFetchAddressClose;
 
 interface IContextProps { state: IState; dispatch: Dispatch<Actions>; }
 
@@ -27,15 +40,17 @@ export const Store = React.createContext({} as IContextProps);
 
 const initialState = {
   address: {},
-  error: false
+  status: ''
 }
 
 function reducer(state: IState, action: Actions) {
   switch (action.type) {
     case 'FETCH_ADDRESS':
-      return { ...state, address: action.payload };
+      return { ...state, address: action.payload, status: 'LOADED' }
     case 'FETCH_ADDRESS_FAIL':
-      return { ...state, address: {}, error: true };
+      return { ...state, address: {}, status: 'ERROR' }
+    case 'FETCH_ADDRESS_CLOSE':
+      return { ...state, address: {}, status: '' }
     default:
       return state;
   }

@@ -2,7 +2,11 @@ import { get } from 'lodash'
 
 export const fetchAddressByZipCode = async (zipCode: string) => {
   const address = await fetch(`https://viacep.com.br/ws/${zipCode}/json`)
-  return await address.json()
+  const addressJSON = await address.json()
+
+  if (addressJSON.erro) throw new Error()
+
+  return addressJSON
 }
 
 export const fetchMapCoordinates = async (zipCode: string) => {

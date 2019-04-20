@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
+import { Store } from '../../../Store'
 import Map from '../../molecules/Map'
 import closeSvg from './images/close.svg'
 
@@ -40,13 +41,32 @@ const CloseButton = styled.button`
 `
 
 const MapContainer = () => {
-  const [ isShown, setIsShown ] = React.useState(true)
+  const { dispatch, state } = React.useContext(Store)
 
   const onClickCloseButton = () => {
-    setIsShown(false)
+    return dispatch({
+      type: 'FETCH_ADDRESS_CLOSE'
+    })
   }
 
-  if (!isShown) return null
+  const shouldMapShow = () => {
+    if (state.status === 'ERROR') return <div>CEP não encontrado!</div>
+
+    return (
+      <Fragment>
+        <AddressWrapper>
+          <Street>{state.address.logradouro}</Street>
+          <p>{state.address.bairro}</p>
+          <p>{state.address.localidade} - {state.address.uf}</p>
+          <p>{state.address.cep}</p>
+        </AddressWrapper>
+
+        <Map coordinates={state.address.mapsCoordinates} />
+      </Fragment>
+    )
+  }
+
+  if (!['LOADED', 'ERROR'].includes(state.status)) return null
 
   return (
     <MapContainerWrapper >
@@ -54,14 +74,7 @@ const MapContainer = () => {
         <img src={closeSvg} alt="close"/>
       </CloseButton>
 
-      <AddressWrapper>
-        <Street>Rua Miguel Mentem</Street>
-        <p>Vila Guilherme</p>
-        <p>São Paulo - SP</p>
-        <p>02050-010</p>
-      </AddressWrapper>
-
-      <Map />
+      {shouldMapShow()}
     </MapContainerWrapper>
   )
 }
