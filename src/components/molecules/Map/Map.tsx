@@ -16,7 +16,7 @@ const Map = (props: IMap) =>
   <MapWrapper>
     <GoogleMapReact
       bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
-      defaultCenter={{lat: -15.5, lng: -57.0946}}
+      defaultCenter={{lat: -15.5, lng: -57}}
       defaultZoom={5}
     >
     </GoogleMapReact>

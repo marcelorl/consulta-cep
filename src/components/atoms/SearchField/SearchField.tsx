@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import InputMask from 'react-input-mask'
+import { omit } from 'lodash'
 
 interface ISearchField {
   id: string
+  onChange: any
+  value: string
 }
 
 const SearchFieldWrapper = styled(InputMask)`
@@ -14,7 +17,19 @@ const SearchFieldWrapper = styled(InputMask)`
   padding: 5px 10px;
 `
 
-const SearchField = (props: ISearchField) =>
-  <SearchFieldWrapper mask="99999-999" {...props} required />
+const SearchField = (props: ISearchField) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.onChange(e.target.value)
+  }
+
+  return (
+    <SearchFieldWrapper
+      {...omit(props, 'onChange')}
+      mask="99999-999"
+      onChange={onChange}
+      required
+    />
+  )
+}
 
 export default React.memo(SearchField)

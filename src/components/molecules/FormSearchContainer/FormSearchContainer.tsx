@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Store } from '../../../Store'
 import Button from '../../atoms/Button'
 import SearchField from '../../atoms/SearchField'
+import fetchAddress from '../../../contexts/fetchAddress'
 
 const FormSearchContainerWrapper = styled.form`
   background: ${props => props.theme.colors.gainsboro};
@@ -27,16 +29,28 @@ const LabelWrapper = styled.label`
   }
 `
 
-const FormSearchContainer = () =>
-  <FormSearchContainerWrapper>
-    <FormSearchFieldWrapperLabel>Consultar</FormSearchFieldWrapperLabel>
-    <SearchBar>
-      <LabelWrapper htmlFor="search-field">
-        <span>CEP</span>
-        <SearchField id="search-field" />
-      </LabelWrapper>
-      <Button />
-    </SearchBar>
-  </FormSearchContainerWrapper>
+const FormSearchContainer = () => {
+  const { dispatch } = React.useContext(Store)
+  const [ zipCode, setZipCode ] = React.useState('')
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    await fetchAddress(dispatch, zipCode)
+  }
+
+  return (
+    <FormSearchContainerWrapper onSubmit={onSubmit}>
+      <FormSearchFieldWrapperLabel>Consultar</FormSearchFieldWrapperLabel>
+      <SearchBar>
+        <LabelWrapper htmlFor="search-field">
+          <span>CEP</span>
+          <SearchField id="search-field" value={zipCode} onChange={setZipCode} />
+        </LabelWrapper>
+        <Button />
+      </SearchBar>
+    </FormSearchContainerWrapper>
+  )
+}
 
 export default React.memo(FormSearchContainer)

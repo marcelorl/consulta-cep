@@ -7,7 +7,7 @@ import { StoreProvider } from './Store'
 import * as serviceWorker from './serviceWorker'
 import { globalTheme } from './globalTheme'
 
-import App from './components/templates/App'
+import App from './components/pages/App'
 
 ReactDOM.render(
   <ThemeProvider theme={globalTheme}>

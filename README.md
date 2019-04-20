@@ -30,6 +30,3 @@ $ npm run build
 ```
 $ npm run lint
 ```
-
-
-https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:12902040|country:BR&key=AIzaSyDm8bAQMtnIJ54pAHmiVl3Bcz7vGqCVYW8

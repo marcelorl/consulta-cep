@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import Map from '../../molecules/Map'
@@ -40,7 +40,7 @@ const CloseButton = styled.button`
 `
 
 const MapContainer = () => {
-  const [isShown, setIsShown] = React.useState(true)
+  const [ isShown, setIsShown ] = React.useState(true)
 
   const onClickCloseButton = () => {
     setIsShown(false)
