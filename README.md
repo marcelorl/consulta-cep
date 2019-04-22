@@ -30,3 +30,10 @@ $ npm run build
 ```
 $ npm run lint
 ```
+
+## tests
+
+```
+$ npm test
+$ npm run coverage
+```
