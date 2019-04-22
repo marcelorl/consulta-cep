@@ -25,7 +25,12 @@
     "typescript": "^3.4.3"
   },
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "jest-enzyme": "^7.0.2",
+    "jest-styled-components": "^6.3.1",
     "lint-staged": "^8.1.5",
+    "react-test-renderer": "^16.8.6",
     "snazzy": "^8.0.0",
     "standard": "^12.0.1"
   },
@@ -58,16 +63,22 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js}",
-      "!<rootDir>/node_modules/",
-      "!src/*.{js}"
+      "src/**/*.{tsx}",
+      "src/**/*.{ts}",
+      "!src/globalTheme.ts",
+      "!src/index.tsx",
+      "!src/setupTests.ts",
+      "!src/react-app-env.d.ts",
+      "!src/serviceWorker.tsx",
+      "!src/styled.d.ts",
+      "!<rootDir>/node_modules/"
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 60,
-        "functions": 60,
-        "lines": 60,
-        "statements": 60
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
       }
     }
   },

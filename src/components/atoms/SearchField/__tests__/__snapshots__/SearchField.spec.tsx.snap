@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#SearchField atom renders component 1`] = `
+<Styled(InputElement)
+  id="id"
+  mask="99999-999"
+  onChange={[Function]}
+  required={true}
+/>
+`;
