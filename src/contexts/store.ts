@@ -33,7 +33,7 @@ export const useAddress = () => {
   const fetchAddress = async (zipCode: string) => {
     try {
       const addressData = await fetchAddressByZipCode(zipCode)
-      const mapsCoordinates = await fetchMapCoordinates(zipCode)
+      const mapsCoordinates = await fetchMapCoordinates(addressData)
 
       return dispatch({
         type: 'FETCH_ADDRESS',
