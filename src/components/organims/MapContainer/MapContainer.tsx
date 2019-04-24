@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-import { Store } from '../../../Store'
+import { Store } from '../../../contexts/store'
 import Map from '../../molecules/Map'
 import closeSvg from './images/close.svg'
 
@@ -41,12 +41,10 @@ const CloseButton = styled.button`
 `
 
 const MapContainer = () => {
-  const { dispatch, state } = React.useContext(Store)
+  const { action, state } = React.useContext(Store)
 
   const onClickCloseButton = () => {
-    return dispatch({
-      type: 'FETCH_ADDRESS_CLOSE'
-    })
+    return action.resetState()
   }
 
   const shouldMapShow = () => {

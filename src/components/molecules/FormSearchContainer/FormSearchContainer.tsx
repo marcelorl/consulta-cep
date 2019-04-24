@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Store } from '../../../Store'
+import { Store } from '../../../contexts/store'
 import Button from '../../atoms/Button'
 import SearchField from '../../atoms/SearchField'
-import fetchAddress from '../../../contexts/fetchAddress'
 
 const FormSearchContainerWrapper = styled.form`
   background: ${props => props.theme.colors.gainsboro};
@@ -30,13 +29,13 @@ const LabelWrapper = styled.label`
 `
 
 const FormSearchContainer = () => {
-  const { dispatch } = React.useContext(Store)
+  const ctx = React.useContext(Store)
   const [ zipCode, setZipCode ] = React.useState('')
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    await fetchAddress(dispatch, zipCode)
+    await ctx.action.fetchAddress(zipCode)
   }
 
   return (
