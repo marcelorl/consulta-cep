@@ -1,7 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Button atom renders component 1`] = `
-<styled.button>
+.c0 {
+  border-radius: 5px;
+  background: #aadaff;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: .35rem 1rem;
+}
+
+.c0:hover {
+  border: 1px solid #aadaff;
+}
+
+<button
+  class="c0"
+>
   Buscar
-</styled.button>
+</button>
 `;

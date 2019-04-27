@@ -1,10 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#SearchField atom renders component 1`] = `
-<Styled(InputElement)
-  id="id"
-  mask="99999-999"
-  onChange={[Function]}
-  required={true}
-/>
+.c0 {
+  border: 1px solid #999999;
+  border-radius: 5px;
+  box-shadow: 0;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+<div>
+  <input
+    class="c0"
+    id="id"
+    required=""
+  />
+</div>
 `;
