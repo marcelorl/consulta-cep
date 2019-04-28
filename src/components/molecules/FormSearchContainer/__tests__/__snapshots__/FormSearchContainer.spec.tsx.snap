@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#FormSearchContainer should render FormSearchContainer 1`] = `
+.c5 {
+  border-radius: 5px;
+  background: #aadaff;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: .35rem 1rem;
+}
+
+.c5:hover {
+  border: 1px solid #aadaff;
+}
+
+.c4 {
+  border: 1px solid #999999;
+  border-radius: 5px;
+  box-shadow: 0;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+.c0 {
+  background: #e0ded9;
+  box-sizing: border-box;
+  padding: 2rem 2rem 4rem;
+  width: 100%;
+}
+
+.c1 {
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.c2 {
+  color: #999999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 > * {
+  margin-right: 1rem;
+}
+
+<div>
+  <form
+    class="c0"
+    data-testid="form-search-container"
+  >
+    <div
+      class="c1"
+    >
+      Consultar
+    </div>
+    <div
+      class="c2"
+    >
+      <label
+        class="c3"
+        for="search-field"
+      >
+        <span>
+          CEP
+        </span>
+        <input
+          class="c4"
+          data-testid="search-field"
+          id="search-field"
+          required=""
+          value=""
+        />
+      </label>
+      <button
+        class="c5"
+      >
+        Buscar
+      </button>
+    </div>
+  </form>
+</div>
+`;

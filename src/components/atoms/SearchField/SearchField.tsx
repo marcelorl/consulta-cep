@@ -25,8 +25,9 @@ const SearchField = (props: ISearchField) => {
   return (
     <SearchFieldWrapper
       {...omit(props, 'onChange')}
-      mask="99999-999"
+      mask='99999-999'
       onChange={onChange}
+      data-testid='search-field'
       required
     />
   )

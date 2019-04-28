@@ -12,6 +12,7 @@ exports[`#SearchField atom renders component 1`] = `
 <div>
   <input
     class="c0"
+    data-testid="search-field"
     id="id"
     required=""
   />

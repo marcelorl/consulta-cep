@@ -1,14 +1,16 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { render } from 'react-testing-library'
+import { cleanup, render } from 'react-testing-library'
 
 import SearchField from '../SearchField'
 import { globalTheme } from '../../../../globalTheme'
 
+afterEach(cleanup)
+
 describe('#SearchField atom', () => {
   it('renders component', () => {
     const { container } = render(
-  <ThemeProvider theme={globalTheme}>
+      <ThemeProvider theme={globalTheme}>
         <SearchField id="id" />
       </ThemeProvider>
     )

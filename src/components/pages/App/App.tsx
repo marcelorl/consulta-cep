@@ -1,16 +1,11 @@
 import React from 'react'
 
 import App from '../../templates/App'
-import { Store, useAddress } from '../../../contexts/store'
+import { StoreProvider } from '../../../contexts/store'
 
-const AppPage = () => {
-  const [ state, action ] = useAddress()
-
-  return (
-    <Store.Provider value={{ state, action }}>
-      <App />
-    </Store.Provider>
-  )
-}
+const AppPage = () =>
+  <StoreProvider>
+    <App />
+  </StoreProvider>
 
 export default AppPage

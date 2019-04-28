@@ -39,7 +39,7 @@ const FormSearchContainer = () => {
   }
 
   return (
-    <FormSearchContainerWrapper onSubmit={onSubmit}>
+    <FormSearchContainerWrapper onSubmit={onSubmit} data-testid='form-search-container'>
       <FormSearchFieldWrapperLabel>Consultar</FormSearchFieldWrapperLabel>
       <SearchBar>
         <LabelWrapper htmlFor="search-field">

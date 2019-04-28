@@ -53,3 +53,13 @@ export const useAddress = () => {
 
   return [ state, { fetchAddress, resetState } ]
 }
+
+export const StoreProvider = (props: any) => {
+  const [ state, action ] = useAddress()
+
+  return (
+    <Store.Provider value={{ state, action }}>
+      {props.children}
+    </Store.Provider>
+  )
+}
