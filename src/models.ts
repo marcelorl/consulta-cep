@@ -1,15 +1,17 @@
-export interface IState {
-  address: {
-    logradouro?: string
-    bairro?: string
-    localidade?: string
-    uf?: string
-    cep?: string
-    mapsCoordinates?: {
-      lat: number
-      lng: number
-    }
+export interface IAddress {
+  logradouro?: string
+  bairro?: string
+  localidade?: string
+  uf?: string
+  cep?: string
+  mapsCoordinates?: {
+    lat: number
+    lng: number
   }
+}
+
+export interface IState {
+  address: IAddress
   status: string
 }
 

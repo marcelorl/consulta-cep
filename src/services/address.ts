@@ -1,5 +1,7 @@
 import { get } from 'lodash'
 
+import { IAddress } from '../models'
+
 export const fetchAddressByZipCode = async (zipCode: string) => {
   const address = await fetch(`https://viacep.com.br/ws/${zipCode}/json`)
   const addressJSON = await address.json()
@@ -9,7 +11,7 @@ export const fetchAddressByZipCode = async (zipCode: string) => {
   return addressJSON
 }
 
-export const fetchMapCoordinates = async (address: any) => {
+export const fetchMapCoordinates = async (address: IAddress) => {
   const addresQueryString = `${address.cep} ${address.localidade}  ${address.logradouro}`
 
   const mapsCoordinates = await fetch(

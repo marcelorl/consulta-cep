@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/marcelorl/consulta-cep.svg?branch=master)](https://travis-ci.org/marcelorl/consulta-cep) [![Greenkeeper badge](https://badges.greenkeeper.io/marcelorl/consulta-cep.svg)](https://greenkeeper.io/)
 
-App to search for addresses by zipcode
+App to search for addresses by zipcode from Brazil
 
 ## installation
 

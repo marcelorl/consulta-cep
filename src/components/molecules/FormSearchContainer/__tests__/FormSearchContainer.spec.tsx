@@ -1,10 +1,8 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { cleanup, fireEvent, render } from 'react-testing-library'
-import { act } from 'react-dom/test-utils';
 
 import FormSearchContainer from '../FormSearchContainer'
-import { StoreProvider } from '../../../../contexts/store'
 import { globalTheme } from '../../../../globalTheme'
 
 afterEach(cleanup)
