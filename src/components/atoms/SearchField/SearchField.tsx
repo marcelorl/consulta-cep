@@ -28,6 +28,7 @@ const SearchField = (props: ISearchField) => {
       mask='99999-999'
       onChange={onChange}
       data-testid='search-field'
+      placeholder='01234-567'
       required
     />
   )

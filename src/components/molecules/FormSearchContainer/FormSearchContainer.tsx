@@ -35,6 +35,8 @@ const FormSearchContainer = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    if (!zipCode) return
+
     await ctx.action.fetchAddress(zipCode)
   }
 
