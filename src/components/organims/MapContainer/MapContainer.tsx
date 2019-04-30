@@ -47,7 +47,7 @@ const MapContainer = () => {
     return action.resetState()
   }
 
-  const shouldMapShow = () => {
+  const shouldShowMap = () => {
     if (state.status === 'ERROR') return <div>CEP não encontrado!</div>
 
     return (
@@ -72,7 +72,7 @@ const MapContainer = () => {
         <img src={closeSvg} alt="close"/>
       </CloseButton>
 
-      {shouldMapShow()}
+      {shouldShowMap()}
     </MapContainerWrapper>
   )
 }

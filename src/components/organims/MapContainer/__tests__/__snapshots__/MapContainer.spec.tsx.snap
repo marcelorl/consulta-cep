@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#MapContainer should not call fetch, because zipcode is required 1`] = `
+.c0 {
+  border: 2px solid #e0ded9;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  padding: 3rem;
+  position: relative;
+}
+
+.c1 {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.c1 img {
+  height: 1rem;
+  width: 1rem;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <button
+      class="c1"
+      type="button"
+    >
+      <img
+        alt="close"
+        src="close.svg"
+      />
+    </button>
+    <div>
+      CEP não encontrado!
+    </div>
+  </div>
+</div>
+`;
