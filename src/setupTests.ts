@@ -1,11 +1,13 @@
 import 'jest-styled-components'
 import { GlobalWithFetchMock } from 'jest-fetch-mock'
+import { toMatchDiffSnapshot } from 'snapshot-diff'
 
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock
 
 customGlobal.fetch = require('jest-fetch-mock')
 customGlobal.fetchMock = customGlobal.fetch
 
+expect.extend({ toMatchDiffSnapshot })
 
 const originalError = console.error
 beforeAll(() => {

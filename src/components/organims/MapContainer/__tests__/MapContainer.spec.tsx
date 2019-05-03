@@ -21,7 +21,7 @@ describe('#MapContainer', () => {
       )
     }
 
-    const { container, getByText } = render(
+    const { asFragment, getByTestId } = render(
       <StoreProvider>
         <ThemeProvider theme={globalTheme}>
           <MapContainer />
@@ -29,8 +29,11 @@ describe('#MapContainer', () => {
       </StoreProvider>
     )
 
-    expect(getByText('CEP não encontrado!')).not.toBeNull()
-    expect(container).toMatchSnapshot()
+    const firstRender = asFragment()
+
+    fireEvent.click(getByTestId('close-button'))
+
+    expect(firstRender).toMatchDiffSnapshot(asFragment())
   })
 })
 

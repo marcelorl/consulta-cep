@@ -68,7 +68,7 @@ const MapContainer = () => {
 
   return (
     <MapContainerWrapper >
-      <CloseButton type="button" onClick={onClickCloseButton}>
+      <CloseButton data-testid="close-button" type="button" onClick={onClickCloseButton}>
         <img src={closeSvg} alt="close"/>
       </CloseButton>
 
