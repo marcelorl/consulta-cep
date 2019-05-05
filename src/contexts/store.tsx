@@ -14,14 +14,16 @@ const initialState: IState = {
   status: ''
 }
 
-function reducer(state: IState, action: Actions) {
+const reducer = (state: IState, action: Actions) => {
   switch (action.type) {
     case 'FETCH_ADDRESS':
       return { ...state, address: action.payload, status: 'LOADED' }
     case 'FETCH_ADDRESS_FAIL':
       return { ...state, address: {}, status: 'ERROR' }
-    case 'ADDRESS_RESET':
+    case 'ADDRESS_RESET': {
+      console.log('-----------------RESET-----------------')
       return { ...state, address: {}, status: '' }
+    }
     default:
       return state
   }

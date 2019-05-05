@@ -1,37 +1,23 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { cleanup, fireEvent, render } from 'react-testing-library'
+import { cleanup, fireEvent } from 'react-testing-library'
+// import { waitForDomChange } from 'dom-testing-library'
 
 import MapContainer from '../MapContainer'
-import { Store, useAddress } from '../../../../contexts/store'
-import { globalTheme } from '../../../../globalTheme'
+import { renderWithProviders } from '../../../../testHelper'
 
 afterEach(cleanup)
 
 describe('#MapContainer', () => {
-  it('should not call fetch, because zipcode is required', () => {
-    const StoreProvider = (props: any) => {
-      const [ _, action ] = useAddress()
-      const state = { address: {}, status: 'ERROR' }
+  it('should not call fetch, because zipcode is required', async () => {
+    const state = { address: {}, status: 'ERROR' }
 
-      return (
-        <Store.Provider value={{ state, action }}>
-          {props.children}
-        </Store.Provider>
-      )
-    }
-
-    const { asFragment, getByTestId } = render(
-      <StoreProvider>
-        <ThemeProvider theme={globalTheme}>
-          <MapContainer />
-        </ThemeProvider>
-      </StoreProvider>
-    )
+    const { asFragment, container, debug, getByTestId } = renderWithProviders(state, <MapContainer />)
 
     const firstRender = asFragment()
 
     fireEvent.click(getByTestId('close-button'))
+
+    // await waitForDomChange({ container })
 
     expect(firstRender).toMatchDiffSnapshot(asFragment())
   })
