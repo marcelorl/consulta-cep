@@ -1,32 +1,20 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { cleanup, fireEvent, render } from 'react-testing-library'
+import { cleanup, fireEvent } from 'react-testing-library'
 
 import FormSearchContainer from '../FormSearchContainer'
-import { StoreProvider } from '../../../../contexts/store'
-import { globalTheme } from '../../../../globalTheme'
+import { renderWithProviders, renderWithStyledProvider } from '../../../../testHelper'
 
 afterEach(cleanup)
 
 describe('#FormSearchContainer', () => {
   it('should render FormSearchContainer', () => {
-    const { container } = render(
-      <ThemeProvider theme={globalTheme}>
-        <FormSearchContainer />
-      </ThemeProvider>
-    )
+    const { container } = renderWithStyledProvider(<FormSearchContainer />)
 
     expect(container).toMatchSnapshot()
   })
 
   it('should not call fetch, because zipcode is required', () => {
-    const { getByText } = render(
-      <StoreProvider>
-        <ThemeProvider theme={globalTheme}>
-          <FormSearchContainer />
-        </ThemeProvider>
-      </StoreProvider>
-    )
+    const { getByText } = renderWithProviders({}, <FormSearchContainer />)
 
     fireEvent.click(getByText(/buscar/i))
 
@@ -34,13 +22,7 @@ describe('#FormSearchContainer', () => {
   })
 
   it('should call fetch, because zipcode is now filled', () => {
-    const { getByText, getByTestId } = render(
-      <StoreProvider>
-        <ThemeProvider theme={globalTheme}>
-          <FormSearchContainer />
-        </ThemeProvider>
-      </StoreProvider>
-    )
+    const { getByText, getByTestId } = renderWithProviders({}, <FormSearchContainer />)
 
     fireEvent.change(getByTestId('search-field'), { target: { value: '00000-000' } })
     fireEvent.click(getByText(/buscar/i))

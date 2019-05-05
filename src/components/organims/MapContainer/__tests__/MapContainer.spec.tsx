@@ -1,36 +1,26 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { cleanup, fireEvent, render } from 'react-testing-library'
+import { cleanup } from 'react-testing-library'
 
 import MapContainer from '../MapContainer'
-import { Store, useAddress } from '../../../../contexts/store'
-import { globalTheme } from '../../../../globalTheme'
+import { renderWithProviders } from '../../../../testHelper'
 
 afterEach(cleanup)
 
 describe('#MapContainer', () => {
-  it('should not call fetch, because zipcode is required', () => {
-    const StoreProvider = (props: any) => {
-      const [ _, action ] = useAddress()
-      const state = { address: {}, status: 'ERROR' }
+  it('should not show mapContainer', async () => {
+    const state = { address: {}, status: '' }
 
-      return (
-        <Store.Provider value={{ state, action }}>
-          {props.children}
-        </Store.Provider>
-      )
-    }
+    const { container } = renderWithProviders(state, <MapContainer />)
 
-    const { container, getByText } = render(
-      <StoreProvider>
-        <ThemeProvider theme={globalTheme}>
-          <MapContainer />
-        </ThemeProvider>
-      </StoreProvider>
-    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
 
-    expect(getByText('CEP não encontrado!')).not.toBeNull()
-    expect(container).toMatchSnapshot()
+  it('should not call fetch, because zipcode is required', async () => {
+    const state = { address: {}, status: 'ERROR' }
+
+    const { container } = renderWithProviders(state, <MapContainer />)
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
 
