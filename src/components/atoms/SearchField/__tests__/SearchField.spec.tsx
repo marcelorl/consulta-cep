@@ -12,17 +12,4 @@ describe('#SearchField atom', () => {
 
     expect(container).toMatchSnapshot()
   })
-
-  // it('tests onChange is called on typing', () => {
-  //   const onChange = jest.fn()
-  //   const { container } = render(
-  // <ThemeProvider theme={globalTheme}>
-  //       <SearchField id="id" onChange={onChange} />
-  //     </ThemeProvider>
-  //   )
-  //
-  //   wrapper.simulate('change', { target: { value: '' } })
-  //
-  //   expect(onChange).toBeCalled()
-  // })
 })

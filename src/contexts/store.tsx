@@ -21,7 +21,6 @@ const reducer = (state: IState, action: Actions) => {
     case 'FETCH_ADDRESS_FAIL':
       return { ...state, address: {}, status: 'ERROR' }
     case 'ADDRESS_RESET': {
-      console.log('-----------------RESET-----------------')
       return { ...state, address: {}, status: '' }
     }
     default:

@@ -4,8 +4,9 @@ import { ThemeProvider } from 'styled-components'
 
 import { Store, useAddress } from './contexts/store'
 import { globalTheme } from './globalTheme'
+import { IState } from './models'
 
-export const renderWithProviders = (state, ui) => {
+export const renderWithProviders = (state: IState, ui: any) => {
   const StoreProvider = (props: any) => {
     const [ _, action ] = useAddress()
 
@@ -25,7 +26,7 @@ export const renderWithProviders = (state, ui) => {
   )
 }
 
-export const renderWithStyledProvider = ui => {
+export const renderWithStyledProvider = (ui: any) => {
   return render(
     <ThemeProvider theme={globalTheme}>
       {ui}
