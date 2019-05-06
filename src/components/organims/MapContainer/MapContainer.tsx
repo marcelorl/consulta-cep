@@ -63,12 +63,12 @@ const MapContainer = () => {
       </Fragment>
     )
   }
-
+console.log('state.status------------>', state.status)
   if (!['LOADED', 'ERROR'].includes(state.status)) return null
 
   return (
     <MapContainerWrapper >
-      <CloseButton type="button" onClick={onClickCloseButton}>
+      <CloseButton data-testid="close-button" type="button" onClick={onClickCloseButton}>
         <img src={closeSvg} alt="close"/>
       </CloseButton>
 

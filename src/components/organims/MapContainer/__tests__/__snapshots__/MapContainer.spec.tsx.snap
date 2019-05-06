@@ -23,22 +23,23 @@ exports[`#MapContainer should not call fetch, because zipcode is required 1`] = 
   width: 1rem;
 }
 
-<div>
-  <div
-    class="c0"
+<div
+  class="c0"
+>
+  <button
+    class="c1"
+    data-testid="close-button"
+    type="button"
   >
-    <button
-      class="c1"
-      type="button"
-    >
-      <img
-        alt="close"
-        src="close.svg"
-      />
-    </button>
-    <div>
-      CEP não encontrado!
-    </div>
+    <img
+      alt="close"
+      src="close.svg"
+    />
+  </button>
+  <div>
+    CEP não encontrado!
   </div>
 </div>
 `;
+
+exports[`#MapContainer should not show mapContainer 1`] = `null`;
