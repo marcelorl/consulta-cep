@@ -67,7 +67,7 @@ describe('#services', () => {
 
         expect(fetch).toBeCalled()
         expect(fetch).toBeCalledWith(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${addresQueryString}&key=MY_MOCKED_KEY`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${addresQueryString}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
         )
         expect(result).toEqual({})
       })
