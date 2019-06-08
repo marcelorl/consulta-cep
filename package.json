@@ -21,7 +21,7 @@
     "react-input-mask": "^2.0.4",
     "react-scripts": "^2.1.8",
     "styled-components": "^4.2.0",
-    "styled-reset": "^2.0.6",
+    "styled-reset": "^2.0.15",
     "typescript": "^3.4.3"
   },
   "devDependencies": {
